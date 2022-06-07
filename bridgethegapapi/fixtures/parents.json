@@ -1,0 +1,21 @@
+[
+    {
+        "model": "bridgethegapapi.parent",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "child_name": "Ariel",
+            "child_age": 12
+        }
+    },
+
+    {
+        "model": "bridgethegapapi.parent",
+        "pk": 2,
+        "fields": {
+            "user": 2,
+            "child_name": "Thomas",
+            "child_age": 10
+        }
+    }
+]

@@ -6,5 +6,45 @@
             "language": "Java Script"
            
         }
+    },
+    {
+        "model": "bridgethegapapi.language",
+        "pk": 2,
+        "fields": {
+            "language": "React"
+           
+        }
+    },
+    {
+        "model": "bridgethegapapi.language",
+        "pk": 3,
+        "fields": {
+            "language": "Angular"
+           
+        }
+    },
+    {
+        "model": "bridgethegapapi.language",
+        "pk": 4,
+        "fields": {
+            "language": "Django"
+           
+        }
+    },
+    {
+        "model": "bridgethegapapi.language",
+        "pk": 5,
+        "fields": {
+            "language": "HTML"
+           
+        }
+    },
+    {
+        "model": "bridgethegapapi.language",
+        "pk": 6,
+        "fields": {
+            "language": "CSS"
+           
+        }
     }
 ]

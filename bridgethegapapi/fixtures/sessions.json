@@ -3,23 +3,13 @@
         "model": "bridgethegapapi.session",
         "pk": 1,
         "fields": {
-            "tutor": 1,
-            "parent": 1,
+            "tutor_id": 1,
+            "parent_id": 1,
             "date": "2022-06-24",
             "time": "7:00",
             "skill_level": 2
         }
-    },
-
-    {
-        "model": "bridgethegapapi.session",
-        "pk": 1,
-        "fields": {
-            "tutor": 2,
-            "parent": 2,
-            "date": "2022-06-26",
-            "time": "8:30",
-            "skill_level": 3
-        }
     }
+
+
 ]

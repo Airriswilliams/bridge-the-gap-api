@@ -8,16 +8,7 @@
             "schedule": "Monday-Friday Evenings",
             "image_url": ""
         }
-    },
-
-    {
-        "model": "bridgethegapapi.tutor",
-        "pk": 2,
-        "fields": {
-            "user": 2,
-            "bio": "Python Tutor",
-            "schedule": "Saturday and Sunday Evenings",
-            "image_url": ""
-        }
     }
+
+ 
 ]

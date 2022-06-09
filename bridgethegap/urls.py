@@ -1,12 +1,13 @@
 from django.contrib import admin
 from django.conf.urls import include
 from django.urls import path
-from bridgethegapapi.views import register_user, login_user, TutorView, SessionView
+from bridgethegapapi.views import register_user, login_user, TutorView, SessionView, ParentView
 from rest_framework import routers
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'tutors', TutorView, 'tutor')
 router.register(r'sessions', SessionView, 'session')
+router.register(r'parents', ParentView, 'parent')
 
 
 urlpatterns = [

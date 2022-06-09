@@ -43,7 +43,7 @@ class TutorSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Tutor
-        fields = ('id', 'user', 'bio','schedule','image_url')
+        fields = ('id', 'user', 'name', 'bio','schedule','image_url')
         
     # The Meta class holds the configuration for the serializer. The serializer is using
     # the Tutor model and including the id, user, bio, schedule, image_url fields

@@ -4,6 +4,7 @@
         "pk": 1,
         "fields": {
             "user": 1,
+            "name": "Jason Jackson",
             "bio": "Awesome Tutor",
             "schedule": "Monday-Friday Evenings",
             "image_url": ""

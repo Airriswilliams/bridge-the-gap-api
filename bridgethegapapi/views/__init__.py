@@ -3,3 +3,4 @@ from .tutor import TutorView, TutorSerializer
 from .session import SessionView, SessionSerializer
 from .parent import ParentView, ParentSerializer
 from .language import LanguageView
+from .review import ReviewView, ReviewSerializer, CreateReviewSerializer

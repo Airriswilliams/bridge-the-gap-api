@@ -3,10 +3,10 @@
         "model": "bridgethegapapi.review",
         "pk": 1,
         "fields": {
-            "session_review": "Airris was patient and explained things well",
+            "tutor_review": "Airris was patient and explained things well",
             "parent_id": 1,
-            "tutor_id": 1,
-            "session_id": 1
+            "tutor_id": 1
+            
             
         }
     }

@@ -36,6 +36,18 @@ class ParentView(ViewSet):
         return Response(serializer.data)
     # all is the equivalent of sql query select * from bridgethegapapi_parent
     
+    # def create(self, request):
+    #     """Handle POST operations
+
+    #     Returns:
+    #         Response -- JSON serialized game instance
+    #     """
+    #     parent = Parent.objects.get(user=request.auth.user)
+    #     serializer = CreateParentSerializer(data=request.data)
+    #     serializer.is_valid(raise_exception=True)
+    #     serializer.save(parent=parent)
+    #     return Response(serializer.data, status=status.HTTP_201_CREATED)
+    
 # Serializer class determines how the Python data should be serialized back 
 # to the client
 class ParentSerializer(serializers.ModelSerializer):
@@ -48,4 +60,7 @@ class ParentSerializer(serializers.ModelSerializer):
     # The Meta class holds the configuration for the serializer. The serializer is using
     # the Parent model and including the id, user, child_name, child_age fields
     
-    
+# class CreateParentSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Parent
+#         fields = ('id', 'user', 'child_name','child_age')

@@ -31,9 +31,9 @@ class ReviewView(ViewSet):
         """
         reviews = Review.objects.all()
         
-        tutor = request.query_params.get('tutor', None)
-        if tutor is not None:
-            reviews = reviews.filter(tutor_id=tutor)
+        # tutor = request.query_params.get('tutor', None)
+        # if tutor is not None:
+        #     reviews = reviews.filter(tutor_id=tutor)
         
        
     # "all" method gets every reviewer that reviewed that game. The conditional,"player in review"

@@ -3,10 +3,65 @@
         "model": "bridgethegapapi.tutor",
         "pk": 1,
         "fields": {
-            "user": 1,
+            "user": 2,
             "name": "Jason Jackson",
-            "bio": "Awesome Tutor",
+            "bio": "Software Developer with a passion for giving back",
             "schedule": "Monday-Friday Evenings",
+            "image_url": ""
+        }
+    },
+    {
+        "model": "bridgethegapapi.tutor",
+        "pk": 2,
+        "fields": {
+            "user": 1,
+            "name": "Airris Williams",
+            "bio": "Junior Software Engineer with multiple years of tutoring experience",
+            "schedule": "Monday-Friday Evenings",
+            "image_url": ""
+        }
+    },
+    {
+        "model": "bridgethegapapi.tutor",
+        "pk": 3,
+        "fields": {
+            "user": 3,
+            "name": "Ronald Thompson",
+            "bio": "Retired Google Developer",
+            "schedule": "Weekends Only",
+            "image_url": ""
+        }
+    },
+    {
+        "model": "bridgethegapapi.tutor",
+        "pk": 4,
+        "fields": {
+            "user": 4,
+            "name": "Shari Jenkins",
+            "bio": "General Assembly Junior Instructor",
+            "schedule": "Monday-Friday Evenings",
+            "image_url": ""
+        }
+    },
+    {
+        "model": "bridgethegapapi.tutor",
+        "pk": 5,
+        "fields": {
+            "user": 5,
+            "name": "Wesly Poe",
+            "bio": "Elementary School Principal turned Dev",
+            "schedule": "Weekends Only",
+            "image_url": ""
+        }
+    },
+    {
+        "model": "bridgethegapapi.tutor",
+        "pk": 6,
+        "fields": {
+            "user": 6,
+            "name": "Michael Owino",
+            "bio": "Full-time Developer, Part-time Tutor",
+            "schedule": "Weekends Only",
             "image_url": ""
         }
     }

@@ -76,7 +76,7 @@ class ReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Review
         fields = ('id', 'tutor_review', 'parent','tutor')
-        depth = 1
+        depth = 2
 
 
 class CreateReviewSerializer(serializers.ModelSerializer):

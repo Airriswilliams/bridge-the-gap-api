@@ -3,6 +3,8 @@ from django.conf.urls import include
 from django.urls import path
 from bridgethegapapi.views import register_user, login_user, TutorView, SessionView, ParentView, LanguageView, ReviewView
 from rest_framework import routers
+from django.conf.urls.static import static
+from django.conf import settings
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'tutors', TutorView, 'tutor')
@@ -20,7 +22,7 @@ urlpatterns = [
     path('login', login_user),
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 # Notice that the register_user and login_user functions are imported into the module. 

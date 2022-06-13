@@ -6,4 +6,5 @@ class Tutor(models.Model):
     name = models.CharField(max_length=30)
     bio = models.CharField(max_length=100) 
     schedule = models.CharField(max_length=100)
-    image_url = models.URLField(max_length=1000)
+    image_url = models.ImageField(upload_to='tutors', height_field=None, 
+                                    width_field=None, null=True, blank=True)

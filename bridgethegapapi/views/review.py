@@ -68,6 +68,11 @@ class ReviewView(ViewSet):
         serializer.save()
         
         return Response(None, status=status.HTTP_204_NO_CONTENT)
+    
+    def destroy(self, request, pk):
+        review = Review.objects.get(pk=pk)
+        review.delete()
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
 
     
 class ReviewSerializer(serializers.ModelSerializer):

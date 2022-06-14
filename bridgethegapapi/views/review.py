@@ -62,6 +62,7 @@ class ReviewView(ViewSet):
     
     def update(self, request, pk):
     
+        parent = Parent.objects.get(user=request.auth.user)
         review = Review.objects.get(pk=pk)
         serializer = CreateReviewSerializer(review, data=request.data)
         serializer.is_valid(raise_exception=True)
@@ -89,4 +90,4 @@ class CreateReviewSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Review
-        fields = ('id', 'tutor_review', 'parent','tutor')
+        fields = ('id', 'tutor_review','tutor')

@@ -4,7 +4,7 @@
         "pk": 1,
         "fields": {
             "tutor_id": 1,
-            "parent_id": 1,
+            "parents": [1],
             "date": "2022-06-24",
             "time": "7:00",
             "skill_level": 2

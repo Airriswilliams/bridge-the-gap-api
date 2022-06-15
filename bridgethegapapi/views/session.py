@@ -1,11 +1,13 @@
 """View module for handling requests about sessions"""
+import re
 from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from bridgethegapapi.models import Session
+from bridgethegapapi.models import Session, session
 from bridgethegapapi.models.parent import Parent
 from bridgethegapapi.models.tutor import Tutor
+from rest_framework.decorators import action
 
 
 class SessionView(ViewSet):
@@ -35,9 +37,9 @@ class SessionView(ViewSet):
         tutor = request.query_params.get('tutor', None)
         if tutor is not None:
             sessions = sessions.filter(tutor_id=tutor)
-        parent = request.query_params.get('parent', None)
-        if parent is not None:
-            sessions = sessions.filter(parent_id=parent)
+        parents = request.query_params.get('parents', None)
+        if parents is not None:
+            sessions = sessions.filter(parent_id=parents)
             
         serializer = SessionSerializer(sessions, many=True)
         return Response(serializer.data)
@@ -79,6 +81,27 @@ class SessionView(ViewSet):
 
         return Response(None, status=status.HTTP_204_NO_CONTENT)
     
+    @action(methods=['post'], detail=True)
+    def signup(self, request, pk):
+        """Post request for a parent to sign up for a tutoring session"""
+        
+        parent = Parent.objects.get(user=request.auth.user)
+        session = Session.objects.get(pk=pk)
+        session.parents.add(parent)
+        return Response({'message': 'Parent added'}, status=status.HTTP_201_CREATED)
+    
+    @action(methods=['delete'], detail=True)
+    def leave(self, request, pk):
+        """Delete request for a user to leave an event"""
+        
+        parent = Parent.objects.get(user=request.auth.user)
+        session = Session.objects.get(pk=pk)
+        session.parents.remove(parent)
+        return Response({'message': 'Parent removed'}, status=status.HTTP_204_NO_CONTENT)
+
+        
+
+    
 # Serializer class determines how the Python data should be serialized back 
 # to the client
 class SessionSerializer(serializers.ModelSerializer):
@@ -86,8 +109,8 @@ class SessionSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Session
-        fields = ('id', 'tutor', 'parent','date','time', 'skill_level')
-        depth = 1
+        fields = ('id', 'tutor', 'parents','date','time', 'skill_level', 'joined')
+        depth = 2
         
     # The Meta class holds the configuration for the serializer. The serializer is using
     # the Tutor model and including the id, tutor, parent, date, time , 'skill_level'fields
@@ -96,5 +119,5 @@ class CreateSessionSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Session
-        fields = ('id', 'tutor', 'parent','date','time', 'skill_level')
+        fields = ('id', 'tutor', 'parents','date','time', 'skill_level')
         depth = 1  

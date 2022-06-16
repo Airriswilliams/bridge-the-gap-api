@@ -54,15 +54,15 @@ class SessionView(ViewSet):
         """
       
         tutor = Tutor.objects.get(user=request.auth.user)
-        parent = Parent.objects.get(pk=request.data["parent"])
+        
         
 
         session = Session.objects.create(
             date=request.data["date"],
             time=request.data["time"],
             skill_level=request.data["skill_level"],
-            tutor=tutor,
-            parent=parent
+            tutor=tutor
+        
         )
         serializer = SessionSerializer(session)
         return Response(serializer.data)

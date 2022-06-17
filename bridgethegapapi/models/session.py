@@ -1,5 +1,6 @@
 from operator import mod
 from django.db import models
+from bridgethegapapi.models import language
 from bridgethegapapi.models.parent import Parent
 
 class Session(models.Model):
@@ -8,6 +9,7 @@ class Session(models.Model):
     date = models.DateField()
     time = models.TimeField()
     skill_level = models.CharField(max_length=25)
+    language = models.ManyToManyField("Language", related_name="languages", through="SessionLanguage")
     
     @property
     def joined(self):

@@ -53,7 +53,7 @@ class SessionView(ViewSet):
         Response -- JSON serialized session instance
         """
       
-        tutor = Tutor.objects.get(user=request.auth.user)
+        tutor = Tutor.objects.get(user=request.data["tutor"])
         
         
 
@@ -63,7 +63,9 @@ class SessionView(ViewSet):
             skill_level=request.data["skill_level"],
             tutor=tutor
         
+        
         )
+        session.language.add(request.data["language"])
         serializer = SessionSerializer(session)
         return Response(serializer.data)
     
@@ -81,6 +83,11 @@ class SessionView(ViewSet):
 
         return Response(None, status=status.HTTP_204_NO_CONTENT)
     
+    def destroy(self, request, pk):
+        review = Session.objects.get(pk=pk)
+        review.delete()
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
+    
     @action(methods=['post'], detail=True)
     def signup(self, request, pk):
         """Post request for a parent to sign up for a tutoring session"""
@@ -92,7 +99,7 @@ class SessionView(ViewSet):
     
     @action(methods=['delete'], detail=True)
     def leave(self, request, pk):
-        """Delete request for a user to leave an event"""
+        """Delete request for a user to leave a tutoring session"""
         
         parent = Parent.objects.get(user=request.auth.user)
         session = Session.objects.get(pk=pk)
@@ -109,7 +116,7 @@ class SessionSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Session
-        fields = ('id', 'tutor', 'parents','date','time', 'skill_level', 'joined')
+        fields = ('id', 'tutor', 'parents','date','time', 'skill_level', 'language', 'joined')
         depth = 2
         
     # The Meta class holds the configuration for the serializer. The serializer is using
@@ -119,5 +126,5 @@ class CreateSessionSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Session
-        fields = ('id', 'tutor', 'parents','date','time', 'skill_level')
+        fields = ('id', 'tutor', 'parents','date','time', 'skill_level','language')
         depth = 1  

@@ -4,6 +4,7 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
 from bridgethegapapi.models import Parent
+from bridgethegapapi.models.session import Session
 
 
 class ParentView(ViewSet):
@@ -31,9 +32,11 @@ class ParentView(ViewSet):
         Returns:
             Response -- JSON serialized list of parents
         """
-        parents = Parent.objects.all()
-        serializer = ParentSerializer(parents, many=True)
+        user = request.auth.user
+        parents = Parent.objects.get(user=user)
+        serializer = ParentSerializer(parents)
         return Response(serializer.data)
+       
     # all is the equivalent of sql query select * from bridgethegapapi_parent
     
     # def create(self, request):
@@ -55,7 +58,8 @@ class ParentSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Parent
-        fields = ('id', 'user', 'child_name','child_age')
+        fields = ('id', 'user', 'child_name','child_age','sessions')
+        depth = 1
         
     # The Meta class holds the configuration for the serializer. The serializer is using
     # the Parent model and including the id, user, child_name, child_age fields

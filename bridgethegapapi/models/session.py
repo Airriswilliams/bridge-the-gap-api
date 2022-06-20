@@ -5,7 +5,7 @@ from bridgethegapapi.models.parent import Parent
 
 class Session(models.Model):
     tutor = models.ForeignKey("tutor", on_delete=models.CASCADE)
-    parents = models.ManyToManyField("Parent", related_name="parents")
+    parents = models.ManyToManyField("Parent", related_name="sessions")
     date = models.DateField()
     time = models.TimeField()
     skill_level = models.CharField(max_length=25)

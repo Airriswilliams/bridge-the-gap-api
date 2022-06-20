@@ -5,7 +5,7 @@
         "fields": {
             "user": 2,
             "name": "Jason Jackson",
-            "bio": "Software Developer with a passion for giving back",
+            "bio": "Recent CS Grad",
             "schedule": "Monday-Friday Evenings",
             "image_url": "tutors/male tech pic.jpeg"
         }
@@ -16,7 +16,7 @@
         "fields": {
             "user": 1,
             "name": "Airris Williams",
-            "bio": "Junior Software Engineer with multiple years of tutoring experience",
+            "bio": "Junior Software Engineer",
             "schedule": "Monday-Friday Evenings",
             "image_url": "tutors/male 2 pic.jpeg"
         }
@@ -49,7 +49,7 @@
         "fields": {
             "user": 5,
             "name": "Wesly Poe",
-            "bio": "Elementary School Principal turned Dev",
+            "bio": "School Principal turned Dev",
             "schedule": "Weekends Only",
             "image_url": "tutors/male tech 4 pic.jpeg"
         }
@@ -60,7 +60,7 @@
         "fields": {
             "user": 6,
             "name": "Michael Owino",
-            "bio": "Full-time Developer, Part-time Tutor",
+            "bio": "Retired Software Engineer",
             "schedule": "Weekends Only",
             "image_url": "tutors/male tech 5 pic.jpeg"
         }
